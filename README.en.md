@@ -1,73 +1,93 @@
-# Drone route system Route classification module
+# Drone Route System – Route Definition Module
 
-This repository publishes a file that creates a module that defines the route in the drone route system as a Docker image.
+This repository provides the files for building a Docker image of the module responsible for defining routes in the Drone Route System.
 
 ## Table of Contents
 
-- [System Overview] (# System Overview)
-- [Building and Setting] (# Construction and Setting)
-- [Build method] (#build method)
-- [Start-up method] (#start-up method)
-- [How to use] (# How to use)
-- [Notes] (# Precautions)
-- [License] (#License)
-- [Disclaimer] (#Disclaimer)
+- [System Overview](#system-overview)  
+- [Configuration and Setup](#configuration-and-setup)  
+- [Build Instructions](#build-instructions)  
+- [Startup Instructions](#startup-instructions)  
+- [Usage](#usage)  
+- [Notes](#notes)  
+- [License](#license)  
+- [Disclaimer](#disclaimer)  
+
+---
 
 ## System Overview
 
-The route classification has the following functions in the drone route system.
-- Maximum drop range management
-- Calculation of the space where the drone route can be set
-- Management of defined route information
+The route definition functionality in the Drone Route System includes the following features:
 
-## Construction and Setup
+- Management of maximum drop range  
+- Calculation of available space for drone route configuration  
+- Management of defined route information  
 
-### Change of settings
+---
 
-This module can be changed by modifying the following property file.  
-The overview of each property file is as follows.
+## Configuration and Setup
 
-|File name|Placement location|Remarks|
-|-|-|-|
-|application.propeties|airway-design\src\main\resource| Include application-specific settings and judgment thresholds|
-|database.properties|airway-design\src\main\resource| Include the connection destination, credentials, and optional parameters of the DB used by the container|
-|system.properties|airway-design\src\main\resource|Settings for other modules that make up the drone route system|
+### Configuration Changes
 
-## How to build
+This module can be configured by modifying the following property files.  
+The outline of each property file is as follows:
 
-To build this module, execute the following command.
+| File Name                | Location                               | Notes                                                                 |
+|---------------------------|----------------------------------------|----------------------------------------------------------------------|
+| `application.properties` | `airway-design\src\main\resource`      | Application-specific settings such as thresholds for decision-making |
+| `database.properties`    | `airway-design\src\main\resource`      | Database connection details, credentials, and optional parameters used by the container |
+| `system.properties`      | `airway-design\src\main\resource`      | Settings for other modules that make up the Drone Route System       |
 
-"The Bash"
-bash ./build.sh
-`` `
+---
 
-## How to start
+## Build Instructions
 
-To start this module, execute the following command.
+To build this module, run the following command:
 
-"The Bash"
-docker compose up - d
-`` `
+```bash
+./build.sh
+````
 
-## How to use
+---
+
+## Startup Instructions
+
+To start this module, run the following command:
+
+```bash
+docker compose up -d
+```
+
+---
+
+## Usage
 
 ### Tips
 
-- Using the mock server of the module that makes up the drone route system
-  - By using the oncoming module as a mock server, you can check the operation of the drone route system.
-  - [stoplight/prism] (https://docs.stoplight.io/docs/prism/f51bcc80a02db-installation#docker) and other applications that launch mock servers using openAPI files are used.
-  - A sample of the file is placed in the openAPI folder.
+* Use mock servers for modules that make up the Drone Route System:
 
-## Precautions
+  * By using mock servers for counterpart modules, you can verify the operation of the Drone Route System.
+  * Applications such as **stoplight/prism**, which can start mock servers from OpenAPI files, can be used.
+  * Sample files are provided in the `openAPI` folder.
 
-- About the notation "Junction" in the source code
-  - It is used in the same sense as "route point" (separating the route compartment set at the time of the route is decided).
+---
+
+## Notes
+
+* Regarding the term **"Junction"** in the source code:
+
+  * It is used with the same meaning as **"route point"** (a node that separates route sections defined during route determination).
+
+---
 
 ## License
 
-- This repository is provided under the MIT license.
-- The copyright of the source code and related documents belongs to IntentExchange Co., Ltd.
+* This repository is provided under the **MIT License**.
+* Copyright of the source code and related documentation belongs to **IntentExchange Inc.**
+
+---
 
 ## Disclaimer
-- The contents of this repository are subject to change or deletion without notice.
-- We shall not be liable for any loss or damage caused by the use of this repository.
+
+* The contents of this repository may be changed or deleted without prior notice.
+* We assume no responsibility for any loss or damage resulting from the use of this repository.
