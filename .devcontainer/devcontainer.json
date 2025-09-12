@@ -6,7 +6,15 @@
 	"service": "app",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"features": {
-		"ghcr.io/frntn/devcontainers-features/prism:1": {}
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "21"
+		},
+		"ghcr.io/devcontainers/features/postgres:1": {
+			"version": "15",
+			"postgresUser": "vscode",
+			"postgresPassword": "vscode",
+			"postgresDb": "vscode"
+		}
 	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
